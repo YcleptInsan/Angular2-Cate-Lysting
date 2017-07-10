@@ -1,9 +1,5 @@
-import { Listing } from './listing.model';
 import { Category } from './category.model';
-
-export const LISTINGS: Listing[] = [
-  // new Listing("")
-];
+import { Listing } from './listing.model';
 
 export const CATEGORIES: Category[] = [
   new Category("community", 1),
@@ -15,4 +11,9 @@ export const CATEGORIES: Category[] = [
   new Category("jobs", 7),
   new Category("gigs", 8),
   new Category("resumes", 9)
+];
+
+export const LISTINGS: Listing[] = [
+  new Listing("Buy this thing", "This is a thing that you can buy from me.", 1, 5),
+  new Listing("Get this service", "This is a service I am providing", 2, 6)
 ];

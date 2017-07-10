@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './category/category.component';
 import { routing } from './app.routing';
 import { ListingDetailComponent } from './listing-detail/listing-detail.component';
+import { CategoryListingsComponent } from './category-listings/category-listings.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ListingDetailComponent } from './listing-detail/listing-detail.componen
     AppComponent,
     HomeComponent,
     CategoryComponent,
-    ListingDetailComponent
+    ListingDetailComponent,
+    CategoryListingsComponent
   ],
   imports: [
     BrowserModule,

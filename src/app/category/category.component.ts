@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Listing } from '../listing.model';
+import { Category } from '../category.model';
 import { Router } from '@angular/router';
-import { ListingService } from '../listing.service';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css'],
-  providers: [ListingService]
+  providers: [CategoryService]
 })
 
 export class CategoryComponent implements OnInit {
-  listings: Listing[];
+  categories: Category[];
 
-  constructor(private router: Router, private listingService: ListingService) { }
+  constructor(private router: Router, private categoryService: CategoryService) { }
 
   ngOnInit() {
-    this.listings = this.listingService.getListings();
+    this.categories = this.categoryService.getCategories();
   }
 
-  goToDetailPage(clickedListing: Listing) {
-    this.router.navigate(['listings', clickedListing.id]);
+  goToDetailPage(clickedCategory: Category) {
+    this.router.navigate(['categories', clickedCategory.id]);
   };
 }
