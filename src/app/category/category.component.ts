@@ -12,7 +12,7 @@ import { CategoryService } from '../category.service';
 
 export class CategoryComponent implements OnInit {
   categories: Category[];
-
+  
   constructor(private router: Router, private categoryService: CategoryService) { }
 
   ngOnInit() {

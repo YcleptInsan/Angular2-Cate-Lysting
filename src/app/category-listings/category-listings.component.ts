@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Listing } from '../listing.model';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
-import { ListingService } from '../listing.service';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category-listings',
   templateUrl: './category-listings.component.html',
   styleUrls: ['./category-listings.component.css'],
-  providers: [ListingService]
+  providers: [CategoryService]
 })
 export class CategoryListingsComponent implements OnInit {
   listings: Listing[];
-  constructor(private router: Router, private listingService: ListingService) { }
+  categoryId: number;
+
+  constructor(private router: Router, private categoryService: CategoryService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.listings = this.listingService.getListings()
+    this.route.params.forEach((urlParameters) => {
+     this.categoryId = parseInt(urlParameters['id']);
+   });
+   this.listings = this.categoryService.getListingByCategoryId(this.categoryId);
   }
+
   goToDetailPage(clickedListing: Listing) {
     this.router.navigate(['listings', clickedListing.id]);
   };
